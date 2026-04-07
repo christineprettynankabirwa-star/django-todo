@@ -10,7 +10,7 @@ class TaskListCreate(generics.ListCreateAPIView):
 
 class TaskUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
-    serilizer_class = TaskSerializer
+    serializer_class = TaskSerializer
 
 def task_list(request):
     if request.method == "POST":
@@ -19,8 +19,7 @@ def task_list(request):
             Task.objects.create(title=title) 
 
         return redirect('task_list')
-    
-    
+        
     tasks = Task.objects.all()
     return render(request, 'todo/tasks.html', {'tasks': tasks})
 
