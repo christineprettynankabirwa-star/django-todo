@@ -10,7 +10,7 @@
 <form method="POST">
     {% csrf_token %}
     <input type="text" name="title" placeholder="Enter task..." required>
-    <button type="submit">Add</button>
+    <button type="submit">Add Task</button>
 </form>
 
 <u1>
@@ -18,6 +18,8 @@
         <li>
             {{ task.title }}
         </li>
+        {% empty %}
+        <li>No tasks yet</li>
     {% endfor %}
 </u1>
 
