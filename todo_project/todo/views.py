@@ -20,6 +20,7 @@ def task_list(request):
 
         return redirect('task_list')
     
+    
     tasks = Task.objects.all()
     return render(request, 'todo/tasks.html', {'tasks': tasks})
 
