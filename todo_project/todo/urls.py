@@ -1,6 +1,10 @@
 from django.urls import path
-from . import views
+from .views import task_list, TasklistCreate, TaskUpdateDelete 
 
 urlpatterns = [
-    path('', views.task_list, name='task_list'),
+    path('', task_list, name='task_list'),
+
+    #API endpoints
+    path('api/tasks/', TaskListCreate.as_view())
+    path('api/tasks/<int:pk>/', TaskUpdateDelete.as_view()),
 ] 
